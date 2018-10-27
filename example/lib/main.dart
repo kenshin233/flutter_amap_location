@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:amap_location/amap_location.dart';
 import 'package:async_loader/async_loader.dart';
-import 'package:simple_permissions/simple_permissions.dart';
+//import 'package:simple_permissions/simple_permissions.dart';
 import 'package:easy_alert/easy_alert.dart';
 
 
@@ -41,18 +41,18 @@ class _LocationGetState extends State {
   }
 
   void _checkPersmission() async{
-    bool hasPermission = await SimplePermissions.checkPermission(Permission.WhenInUseLocation);
-    if(!hasPermission){
-      bool requestPermissionResult = await SimplePermissions.requestPermission(Permission.WhenInUseLocation);
-      if(!requestPermissionResult){
-        Alert.alert(context,title: "申请定位权限失败");
-        return;
-      }
-    }
-    AMapLocation loc = await AMapLocationClient.getLocation(true);
-    setState(() {
-      _loc = loc;
-    });
+//    bool hasPermission = await SimplePermissions.checkPermission(Permission.WhenInUseLocation);
+//    if(!hasPermission){
+//      bool requestPermissionResult = await SimplePermissions.requestPermission(Permission.WhenInUseLocation);
+//      if(!requestPermissionResult){
+//        Alert.alert(context,title: "申请定位权限失败");
+//        return;
+//      }
+//    }
+//    AMapLocation loc = await AMapLocationClient.getLocation(true);
+//    setState(() {
+//      _loc = loc;
+//    });
   }
 
   @override
@@ -104,29 +104,29 @@ class _LocationListenState extends State {
           child: new Text(location),
         ));
   }
-  void _checkPersmission() async{
-    bool hasPermission = await SimplePermissions.checkPermission(Permission.WhenInUseLocation);
-    if(!hasPermission){
-      bool requestPermissionResult = await SimplePermissions.requestPermission(Permission.WhenInUseLocation);
-      if(!requestPermissionResult){
-        Alert.alert(context,title: "申请定位权限失败");
-        return;
-      }
-    }
-    AMapLocationClient.onLocationUpate.listen((AMapLocation loc) {
-      if (!mounted) return;
-      setState(() {
-        location = getLocationStr(loc);
-      });
-    });
-
-
-    AMapLocationClient.startLocation();
-  }
+//  void _checkPersmission() async{
+//    bool hasPermission = await SimplePermissions.checkPermission(Permission.WhenInUseLocation);
+//    if(!hasPermission){
+//      bool requestPermissionResult = await SimplePermissions.requestPermission(Permission.WhenInUseLocation);
+//      if(!requestPermissionResult){
+//        Alert.alert(context,title: "申请定位权限失败");
+//        return;
+//      }
+//    }
+//    AMapLocationClient.onLocationUpate.listen((AMapLocation loc) {
+//      if (!mounted) return;
+//      setState(() {
+//        location = getLocationStr(loc);
+//      });
+//    });
+//
+//
+//    AMapLocationClient.startLocation();
+//  }
   @override
   void initState() {
     location = getLocationStr(null);
-    _checkPersmission();
+//    _checkPersmission();
 
     super.initState();
   }

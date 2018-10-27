@@ -7,7 +7,7 @@ homepage: https://github.com/jzoom/flutter_amap_location
 dependencies:
   flutter:
     sdk: flutter
-  simple_permissions:
+  permission_handler:
   easy_alert:
 
 environment:
